@@ -6,8 +6,8 @@
     "scripts": {
         "build": "webpack --config webpack.native.config.js",
         "build_plugin": "webpack --config ./tools/webpack.config.plugin.js --color",
-        "dev": "webpack -w --config webpack.native.config.js & serve -p 12581",
-        "serve": "serve -p 12581",
+        "dev": "webpack -w --config webpack.native.config.js & serve -p 12588",
+        "serve": "serve -p 12588",
         "copy:android": "node tools/android/android_builder.js",
         "copy:ios": "node tools/ios/ios_builder.js",
         "copy": "npm run copy:android && npm run copy:ios",
