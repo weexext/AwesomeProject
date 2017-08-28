@@ -53,49 +53,24 @@ function exec(command,quiet){
 function build(src,target) {
     //先清空原目录...
     rimraf(target)
-    if (!fs.existsSync(target)) {
-        fs.mkdirSync(target);
-    }
     //同步文件...
     let command = 'rsync -r -v --delete-after '+ src +' '+target
     exec(command)
 }
 
 module.exports = build
-// var __dirname ='platforms/android/app';
 
-
-
-if (!fs.existsSync("platforms/android/app/src/main/assets")) {
-    fs.mkdirSync("platforms/android/app/src/main/assets");
-    console.log('mkdir assets')
-}
-if (!fs.existsSync("platforms/android/app/src/main/assets/weex")) {
-    fs.mkdirSync("platforms/android/app/src/main/assets/weex");
-    console.log('mkdir weex')
-}
-if (!fs.existsSync("platforms/android/app/src/main/assets/weex/res")) {
-    fs.mkdirSync("platforms/android/app/src/main/assets/weex/res");
-    console.log('mkdir res')
-}
-if (!fs.existsSync("platforms/android/app/src/main/assets/weex/jsbundle")) {
-    fs.mkdirSync("platforms/android/app/src/main/assets/weex/jsbundle");
-    console.log('mkdir jsbundle')
-}
-
-//图片资源文件
-const imgSrc ='src/assets/*'
-const imgTarget = 'platforms/android/app/src/main/assets/weex/res'
-// const imgTarget = path.join(__dirname, 'src', 'main','assets','weex','res')
-
-
-
-build(imgSrc,imgTarget)
+// //图片资源文件
+// const imgSrc ='src/assets/*'
+// const imgTarget = 'platforms/android/app/src/main/assets/weex/res'
+// build(imgSrc,imgTarget)
+//
+// //JS文件
+// const jsSrc ='dist/native/*'
+// const jsTarget = 'platforms/android/app/src/main/assets/weex/jsbundle'
+// build(jsSrc,jsTarget)
 
 //JS文件
-const jsSrc ='dist/native/*'
-const jsTarget = 'platforms/android/app/src/main/assets/weex/jsbundle'
-// const jsTarget = path.join(__dirname, 'src', 'main','assets','weex','jsbundle')
+const jsSrc ='dist/package/*'
+const jsTarget = 'platforms/android/app/src/main/assets/weex'
 build(jsSrc,jsTarget)
-
-
