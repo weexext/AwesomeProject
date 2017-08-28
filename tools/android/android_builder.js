@@ -69,7 +69,12 @@ module.exports = build
 // const jsSrc ='dist/native/*'
 // const jsTarget = 'platforms/android/app/src/main/assets/weex/jsbundle'
 // build(jsSrc,jsTarget)
-
+if (!fs.existsSync("platforms/android/app/src/main/assets")) {
+    fs.mkdirSync("platforms/android/app/src/main/assets");
+}
+if (!fs.existsSync("platforms/android/app/src/main/assets/weex")) {
+    fs.mkdirSync("platforms/android/app/src/main/assets/weex");
+}
 //JS文件
 const jsSrc ='dist/package/*'
 const jsTarget = 'platforms/android/app/src/main/assets/weex'
