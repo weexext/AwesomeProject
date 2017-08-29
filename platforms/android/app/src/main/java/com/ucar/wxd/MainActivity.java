@@ -4,7 +4,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 
-import com.ucar.weex.UWXPageManger;
+import com.ucar.weex.UWXPageManager;
+import com.ucar.weex.init.model.UWXBundleInfo;
 
 public class MainActivity extends FragmentActivity {
 
@@ -24,7 +25,7 @@ public class MainActivity extends FragmentActivity {
     }
 
     private void startWeexPage() {
-        UWXPageManger.openPage(this, "index.js");
+        UWXPageManager.openPage(this, "index.js", new UWXBundleInfo.NavBar("#ff99cc00", "#ffff4444"));
 //        Bundle bundle = new Bundle();
 //        bundle.putString("key", "value");
 //        bundle.putString("name", "zhangsan");
