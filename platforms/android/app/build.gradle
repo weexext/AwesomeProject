@@ -82,7 +82,7 @@ repositories{
         debugCompile 'com.taobao.android:weex_inspector:0.10.0.5'
         debugCompile 'com.journeyapps:zxing-android-embedded:3.4.0'
 
-        compile 'com.ucar:weexext_sdk:1.0.9@aar'
+        compile 'com.ucar:weexext_sdk:1.1.0@aar'
         compile 'com.ucar:weex_sdk:1.6@aar'
         compile 'com.squareup.okhttp3:okhttp:3.8.1'
     }
