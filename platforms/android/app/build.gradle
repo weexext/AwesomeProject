@@ -15,6 +15,11 @@ android {
             abiFilters "x86"
             abiFilters "armeabi"
         }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "88151d30044e75e5d4255525", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
     }
     signingConfigs {
         release {
@@ -32,11 +37,21 @@ android {
     }
     buildTypes {
         release {
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: defaultConfig.applicationId,
+                    JPUSH_APPKEY : "8d3ac0df337a81defc7b4997", //JPush上注册的包名对应的appkey.
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+            ]
             signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: defaultConfig.applicationId,
+                    JPUSH_APPKEY : "88151d30044e75e5d4255525", //JPush上注册的包名对应的appkey.
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+            ]
             testCoverageEnabled true
             signingConfig signingConfigs.debug
         }
@@ -81,10 +96,19 @@ repositories{
         debugCompile 'com.squareup.okhttp:okhttp-ws:2.3.0'
         debugCompile 'com.taobao.android:weex_inspector:0.10.0.5'
         debugCompile 'com.journeyapps:zxing-android-embedded:3.4.0'
+//        //ucar weexsdk拓展
+        compile 'com.ucar:weexext_sdk:2.0.2@aar'
+         compile 'com.ucar:weex_sdk:1.6@aar'
+//        //taobao weexsdk
+//        compile 'com.taobao.android:weex_sdk:0.10.0@aar'
 
-        compile 'com.ucar:weexext_sdk:1.1.0@aar'
-        compile 'com.ucar:weex_sdk:1.6@aar'
+
         compile 'com.squareup.okhttp3:okhttp:3.8.1'
+//        compile project(':weex-sdk16')
+//        compile project(':uwx')
+
+
+
     }
     flatDir{
         dirs 'libs'
